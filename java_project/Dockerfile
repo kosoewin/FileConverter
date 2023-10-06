@@ -10,7 +10,7 @@ RUN wget https://downloads.apache.org/tomcat/tomcat-8/v8.5.93/bin/apache-tomcat-
 RUN cd /tmp ; tar -xzf tomcat.tar.gz
 RUN mv /tmp/apache-tomcat-8.5.93/ /home/user/
 RUN chmod -R 775 /home/user/*
-COPY ./FileConverter.war /home/user/apache-tomcat-8.5.93/webapps/
+COPY java_project/FileConverter.war /home/user/apache-tomcat-8.5.93/webapps/
 RUN mkdir -p /home/user/Uploads
 RUN mkdir -p /home/user/Uploads/EXCEL
 RUN mkdir -p /home/user/Uploads/XML
