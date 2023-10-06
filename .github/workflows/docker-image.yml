@@ -20,7 +20,7 @@ jobs:
       run: docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build -t fileconverter .
+      run: docker build --f ./java_project/Dockerfile -t fileconverter .
     - name:  tag the image
       run: docker tag fileconverter:latest soewin/fileconverter:latest
     - name: push the docker images
