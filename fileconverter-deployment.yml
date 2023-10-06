@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fileconverter-deployment
+  labels:
+    app: fileconverter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fileconverter
+  template:
+    metadata:
+      labels:
+        app: fileconverter
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+      containers:
+      - name: fileconverter
+        image: soewin/tomcat:v3.1
+        ports:
+        - containerPort: 8080
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fileconverter-service
+spec:
+  selector:
+    app: fileconverter
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: LoadBalancer
