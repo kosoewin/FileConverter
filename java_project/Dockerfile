@@ -14,6 +14,6 @@ COPY ./FileConverter.war /home/user/apache-tomcat-8.5.93/webapps/
 RUN mkdir -p /home/user/Uploads
 RUN mkdir -p /home/user/Uploads/EXCEL
 RUN mkdir -p /home/user/Uploads/XML
-ENV JAVA_OPTS="-Xms512m -Xmx1024m"
+ENV JAVA_OPTS="-Xms512m -Xmx512m"
 EXPOSE 8080
 CMD ["/home/user/apache-tomcat-8.5.93/bin/catalina.sh", "run"]
